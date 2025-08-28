@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RRT – incidentų reagavimo lentelė</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111;
+      --muted: #555;
+      --border: #e3e7ef;
+      --accent: #eef5ff;
+      --section: #f7f9fc;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.45;
+    }
+    table {
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      width: auto;
+      max-width: 100%;
+      background: #fff;
+      font-size: 14px;
+    }
+    thead th {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--border);
+      background: var(--accent);
+    }
+    tbody td, tbody th {
+      padding: 10px 12px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr.section-row th {
+      background: var(--section);
+      font-weight: 700;
+      border-right: 1px solid var(--border);
+      width: 240px;
+    }
+    td.description {
+      max-width: 500px;     
+      width: 500px;          /* fiksuotas aprašymo stulpelio plotis */
+    }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    .responsible { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>RRT – incidentų reagavimo lentelė</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pagrindinis žingsnis</th>
+        <th>Potemė</th>
+        <th class="description">Aprašymas</th>
+        <th>Atsakingas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 1. Pranešimo gavimas ir registravimas -->
+      <tr class="section-row">
+        <th rowspan="3">Pranešimo gavimas ir registravimas</th>
+        <td>Pranešimo gavimas</td>
+        <td class="description">
+          Gaunamas pranešimas bet kokiu informacijos šaltiniu: registruotu laišku, el. paštu, telefonu, viešu šaltiniu,
+          iš vartotojo arba iš kompiuterinių saugumo incidentų tyrimų tarnybos (CERT-LT).
+        </td>
+        <td class="responsible">Bet kuris RRT darbuotojas</td>
+      </tr>
+      <tr>
+        <td>Registravimas</td>
+        <td class="description">Užregistruoti pranešimą DVS.</td>
+        <td class="responsible">Administratorius</td>
+      </tr>
+      <tr>
+        <td>Pranešimo patvirtinimas</td>
+        <td class="description">
+          Jei pranešimas gautas ne iš tiesioginio šaltinio, susisiekti su atsakinga įmone ir paprašyti oficialaus patvirtinimo.
+        </td>
+        <td class="responsible">Pranešimą gavęs ir perdavęs registravimui asmuo</td>
+      </tr>
+
+      <!-- 2. Incidento vertinimas ir klasifikavimas -->
+      <tr class="section-row">
+        <th rowspan="3">Incidento vertinimas ir klasifikavimas</th>
+        <td>Ar tai tikras incidentas?</td>
+        <td class="description">Įvertinti, ar pranešimas atitinka saugumo incidento kriterijus.</td>
+        <td class="responsible">Pagal kompetenciją atsakingas asmuo</td>
+      </tr>
+      <tr>
+        <td>Rizikos lygio nustatymas</td>
+        <td class="description">Poveikio įvertinimas paslaugų saugumui, patikimumui ir prieinamumui.</td>
+        <td class="responsible">Pagal kompetenciją atsakingas asmuo</td>
+      </tr>
+      <tr>
+        <td>Prioriteto suteikimas</td>
+        <td class="description">Aukščiausio lygio incidentai nagrinėjami skubiai.</td>
+        <td class="responsible">Pagal kompetenciją atsakingas asmuo</td>
+      </tr>
+
+      <!-- 3. Reagavimas ir sąveika su paslaugų teikėju -->
+      <tr class="section-row">
+        <th rowspan="3">Reagavimas ir sąveika su paslaugų teikėju</th>
+        <td>Oficialus kreipimasis</td>
+        <td class="description">
+          RRT kreipiasi į paslaugų teikėją dėl incidento informacijos:
+          <ul>
+            <li>Kada įvyko</li>
+            <li>Kokia apimtis</li>
+            <li>Kiek naudotojų paveikta</li>
+            <li>Ar buvo pažeisti saugumo reikalavimai</li>
+            <li>Kokių veiksmų imtasi</li>
+          </ul>
+        </td>
+        <td class="responsible">Pagal kompetenciją atsakingas darbuotojas</td>
+      </tr>
+      <tr>
+        <td>Pradinė analizė</td>
+        <td class="description">Įvertinama, ar paslaugų teikėjas tinkamai reaguoja pagal teisės aktus.</td>
+        <td class="responsible">Pagal kompetenciją atsakingas darbuotojas</td>
+      </tr>
+      <tr>
+        <td>Vertinimas dėl veiksmų</td>
+        <td class="description">
+          Jei būtina – nurodoma atlikti auditą savo lėšomis. Taip pat:
+          <ul>
+            <li>paprašyti korekcinių veiksmų</li>
+            <li>informuoti kitas institucijas</li>
+            <li>kreiptis į ES institucijas (jeigu tai tarpvalstybinis eID incidentas)</li>
+          </ul>
+        </td>
+        <td class="responsible">Pagal kompetenciją atsakingas darbuotojas</td>
+      </tr>
+
+      <!-- 4. Komunikacija su suinteresuotomis šalimis -->
+      <tr class="section-row">
+        <th rowspan="4">Komunikacija su suinteresuotomis šalimis</th>
+        <td>Paslaugų teikėjas</td>
+        <td class="description">Nuolatinė komunikacija viso tyrimo metu.</td>
+        <td class="responsible">RRT darbuotojas</td>
+      </tr>
+      <tr>
+        <td>CERT-LT / NKSC</td>
+        <td class="description">Jei incidentas techninis ar kibernetinis.</td>
+        <td class="responsible">RRT darbuotojas + paslaugų teikėjas</td>
+      </tr>
+      <tr>
+        <td>VDAI</td>
+        <td class="description">Jei pažeisti asmens duomenys.</td>
+        <td class="responsible">RRT darbuotojas + paslaugų teikėjas</td>
+      </tr>
+      <tr>
+        <td>Visuomenė</td>
+        <td class="description">Tik jeigu yra būtinybė, pvz. dėl duomenų nutekėjimo.</td>
+        <td class="responsible">Paslaugos teikėjas</td>
+      </tr>
+
+      <!-- 5. Incidento užbaigimas -->
+      <tr class="section-row">
+        <th rowspan="4">Incidento užbaigimas</th>
+        <td>Ataskaitos reikalavimas</td>
+        <td class="description">
+          Paslaugos teikėjas pateikia išsamų incidento tyrimo dokumentą:
+          <ul>
+            <li>Kas įvyko</li>
+            <li>Ką padarė</li>
+            <li>Kaip išvengs ateityje</li>
+          </ul>
+        </td>
+        <td class="responsible">RRT darbuotojas</td>
+      </tr>
+      <tr>
+        <td>RRT vertinimas</td>
+        <td class="description">Įvertinama, ar paslaugų teikėjo atsakas buvo tinkamas.</td>
+        <td class="responsible">RRT darbuotojas</td>
+      </tr>
+      <tr>
+        <td>Korekciniai įsipareigojimai</td>
+        <td class="description">RRT gali įpareigoti atlikti auditą ir nurodyti veiksmus.</td>
+        <td class="responsible">RRT darbuotojas</td>
+      </tr>
+      <tr>
+        <td>Incidento uždarymas</td>
+        <td class="description">Incidentas uždaromas DVS, pridedami dokumentai.</td>
+        <td class="responsible">RRT darbuotojas</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
